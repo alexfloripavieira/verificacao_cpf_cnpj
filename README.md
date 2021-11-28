@@ -3,6 +3,8 @@
 
 # Aplicação WEB para verificação de CPF/CNPJ #
 
+______________________________________________________________________________________________________________________________________________________________________________________
+
 # First step #
 
 Instantiate Postgres server with the docker command below:
