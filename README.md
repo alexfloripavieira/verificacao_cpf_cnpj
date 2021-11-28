@@ -7,7 +7,7 @@
 
 Instantiate Postgres server with the docker command below:
 
-'docker run --name darth-vader-postgres -p 5432:5432 -e POSTGRES_PASSWORD='postegres' -d postgres:10-alpine'
+'docker run --name darth-vader-postgres -p 5432:5432 -e POSTGRES_PASSWORD='postgres' -d postgres:10-alpine'
 
 To stop the postgres docker use the command below:
 
