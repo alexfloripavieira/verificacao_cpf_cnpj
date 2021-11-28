@@ -79,6 +79,6 @@ Subir o servidor Python atraves do comando abaixo:
 
 _________________________________________________________________________________________________________________________________________________________________________________
 
-# After running all instances, in the browser at localHost 127.0.0.1 on port 8000, access the user interface for CPF or CNPJ  verification of CPF #
+# After running all instances, in the browser at localHost 127.0.0.1 on port 8000, access the user interface for CPF or CNPJ  verification #
 
 # Após rodar todas as instancias, no navegador em localHost  127.0.0.1 na porta 8000 acessar a interface do usuario para verificação de CPF ou CNPJ #
