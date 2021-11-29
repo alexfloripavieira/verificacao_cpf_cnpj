@@ -8,12 +8,12 @@ from rest_framework.response import Response
 
 from apps.documents.models import DocumentModel
 
-from .serializer import DocumentSerializer
+from .serializer import DocumentSerializer, DocumentAPISerializer
 from .service import DocumentsService
 
 _SERVICE = DocumentsService()
 
-
+#bridge entre frontend e backend
 def home(request):
     if request.POST and request.POST['action'] == "Adicionar":
         if not _SERVICE.cpf_cnpj_is_valid(request.POST.get("cpf_cnpj")):
@@ -55,19 +55,14 @@ def home(request):
 
 
 class DocumentsView(viewsets.ModelViewSet):
-    serializer_class = DocumentSerializer
+    serializer_class = DocumentAPISerializer
     queryset = DocumentModel.objects.all()
-    http_method_names = ['post', 'get']
+    http_method_names = [
+        'post',
+        'get',
+        'patch',
+    ]
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = (
         "cpf_cnpj",
     )
-
-    def create(self, request, *args, **kwargs):
-        if not _SERVICE.cpf_cnpj_is_valid(request.data):
-            return Response(
-                {"message": "CPF/CNPJ inválido"},
-                status=status.HTTP_400_BAD_REQUEST,
-                content_type="application/json")
-        request.data["cpf_cnpj"] = _SERVICE.clean(request.data["cpf_cnpj"])
-        return super().create(request, *args, **kwargs)

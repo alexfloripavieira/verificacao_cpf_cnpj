@@ -1,6 +1,6 @@
 from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator
 
+# Criação do modelo de documento
 class DocumentModel(models.Model):
 
     cpf_cnpj = models.CharField(
